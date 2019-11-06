@@ -27,20 +27,6 @@
 ---  POSSIBILITY OF SUCH DAMAGE.
 --- -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
---
--- Created under CLion IDE.
--- Date: Friday, 8th May, 2018
--- Time: 9:46 AM
---
--- Wireless Sensor Node Project
--- DissectorProjectWSN.lua
--- Program Purpose:
---  -> To dissect the AM and CTP Protocol Layer of the data colected during experiments in Wireshark
---
--- User: Aryan Kukreja (100651838)
--- Contact Information: aryan.kukreja@uoit.net
---
-
 -- The dissector below is a modification of an original dissector found at the following link:
 --      -> https://github.com/Pinoccio/hardware-pinoccio/blob/master/firmware/bootloader/p2p-wireshark-dissector.lua
 
@@ -55,8 +41,6 @@ local SixLowPAN_ID =
     [0x71] = "DataFrame",
     [0x72] = "DebugFrame"
 }
-
---- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 
 -- Declaring Field Values of Dissector (grouped on purpose/function)
 -- Format: Each entry is a property of the fields property of the CTP_Protocol Proto object.
@@ -91,10 +75,7 @@ CTP_Protocol.experts.too_short = ProtoExpert.new("short", "Packet too short", ex
 CTP_Protocol.experts.too_long = ProtoExpert.new("long", "Packet too long", expert.group.MALFORMED, expert.severity.ERROR)
 CTP_Protocol.experts.unknown_cmd = ProtoExpert.new("unknown_cmd", "Unknown command", expert.group.MALFORMED, expert.severity.ERROR)
 
---- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
-
 -- Declare and define all the functions here
-
 -- Init function, called before any packet is dissected
 function CTP_Protocol.init()
     -- Nothing required from init() function
@@ -190,7 +171,6 @@ function dissector(buffer, pinfo, tree)
     end
 end
 
---- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 -- Dissector is registered and activated here. Apart from the variable names, the original code is left unchanged
 CTP_Protocol.dissector = dissector
 
