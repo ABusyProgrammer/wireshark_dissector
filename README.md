@@ -1,4 +1,4 @@
-# Wireshark 802.15.4 Psot-Dissector
+# Wireshark 802.15.4 Post-Dissector
 This is a wireshark dissector for a data-packet of the IEEE 802.15.4 protocol. It dissects the following frames of the packet:
 1. Data Frame
 2. Routing Frame
